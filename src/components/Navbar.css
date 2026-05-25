@@ -1,0 +1,195 @@
+.topbar {
+  background: var(--black);
+  color: var(--text-on-dark-muted);
+  font-size: 12.5px;
+  padding: 7px 0;
+  border-bottom: 1px solid rgba(255,255,255,0.06);
+}
+.topbar__inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.topbar__left { display: flex; align-items: center; gap: 20px; }
+.topbar__item {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  color: var(--text-on-dark-muted);
+}
+.topbar__item svg { color: var(--red); flex-shrink: 0; }
+.topbar__phone {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  color: var(--white);
+  font-weight: 600;
+  font-family: var(--font-display);
+  font-size: 14px;
+  letter-spacing: 0.5px;
+  transition: color var(--transition);
+}
+.topbar__phone svg { color: var(--red); }
+.topbar__phone:hover { color: var(--light-grey); }
+
+/* ---- Navbar ---- */
+.navbar {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background: var(--white);
+  border-bottom: 1px solid var(--border);
+  transition: box-shadow var(--transition);
+}
+.navbar--scrolled { box-shadow: var(--shadow); }
+
+.navbar__inner {
+  display: flex;
+  align-items: center;
+  height: var(--nav-height);
+  gap: 24px;
+}
+
+/* Logo */
+.navbar__logo {
+  display: flex;
+  align-items: center;
+  flex-shrink: 0;
+  margin-right: 8px;
+}
+.navbar__logo img {
+  height: 44px;
+  width: auto;
+  display: block;
+}
+
+/* Links */
+.navbar__links {
+  display: flex;
+  align-items: center;
+  gap: 0;
+  margin-left: auto;
+}
+.navbar__item { position: relative; }
+
+.navbar__link {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  padding: 8px 15px;
+  font-family: var(--font-display);
+  font-size: 14px;
+  font-weight: 700;
+  letter-spacing: 0.8px;
+  text-transform: uppercase;
+  color: var(--text-body);
+  transition: color var(--transition);
+  white-space: nowrap;
+}
+.navbar__link:hover,
+.navbar__link--active { color: var(--red); }
+
+/* Active indicator */
+.navbar__link--active::after {
+  content: '';
+  position: absolute;
+  bottom: -1px;
+  left: 15px;
+  right: 15px;
+  height: 2px;
+  background: var(--red);
+}
+
+/* Dropdown */
+.dropdown {
+  position: absolute;
+  top: calc(100% + 4px);
+  left: 0;
+  background: var(--white);
+  border: 1px solid var(--border);
+  border-top: 2px solid var(--red);
+  min-width: 210px;
+  box-shadow: var(--shadow);
+  border-radius: 0 0 var(--radius) var(--radius);
+  animation: dropIn 0.16s ease;
+  z-index: 10;
+}
+@keyframes dropIn {
+  from { opacity: 0; transform: translateY(-6px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+.dropdown__link {
+  display: block;
+  padding: 11px 18px;
+  font-size: 13.5px;
+  color: var(--text-body);
+  border-bottom: 1px solid var(--border);
+  transition: all var(--transition);
+}
+.dropdown__link:last-child { border-bottom: none; }
+.dropdown__link:hover {
+  background: var(--pale-grey);
+  color: var(--red);
+  padding-left: 22px;
+}
+
+/* CTA */
+.navbar__cta { flex-shrink: 0; margin-left: 8px; }
+
+/* Burger */
+.navbar__burger {
+  display: none;
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: var(--charcoal);
+  margin-left: auto;
+  padding: 4px;
+}
+
+/* Mobile menu */
+.mobile-menu {
+  display: none;
+  overflow: hidden;
+  max-height: 0;
+  transition: max-height 0.32s ease;
+  background: var(--white);
+  border-top: 1px solid var(--border);
+}
+.mobile-menu--open { max-height: 580px; }
+.mobile-menu__inner {
+  padding: 16px 28px 28px;
+  display: flex;
+  flex-direction: column;
+}
+.mobile-menu__link {
+  display: block;
+  padding: 13px 0;
+  font-family: var(--font-display);
+  font-size: 17px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.8px;
+  color: var(--text-heading);
+  border-bottom: 1px solid var(--border);
+}
+.mobile-menu__children { padding: 4px 0 8px 14px; }
+.mobile-menu__child {
+  display: block;
+  padding: 7px 0;
+  font-size: 14px;
+  color: var(--text-muted);
+}
+.mobile-menu__phone {
+  margin-top: 20px;
+  justify-content: center;
+}
+
+@media (max-width: 900px) {
+  .navbar__links, .navbar__cta { display: none; }
+  .navbar__burger, .mobile-menu { display: block; }
+  .topbar__left span:not(.topbar__phone) { display: none; }
+}
+@media (max-width: 500px) {
+  .topbar { display: none; }
+}

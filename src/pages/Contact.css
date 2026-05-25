@@ -1,0 +1,267 @@
+.contact-page__hero {
+  background: var(--charcoal);
+  padding: 64px 0 48px;
+  border-bottom: 3px solid var(--red);
+}
+.contact-page__hero .section-title { color: var(--white); }
+.contact-page__hero .section-body  { color: var(--text-on-dark-muted); }
+
+.contact-page__body {
+  display: grid;
+  grid-template-columns: 340px 1fr;
+  gap: 40px;
+  padding-top: 56px;
+  padding-bottom: 72px;
+  align-items: start;
+}
+
+/* ── Info cards ── */
+.contact-page__info {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.info-card {
+  background: var(--white);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 28px;
+}
+
+.info-card__title {
+  font-family: var(--font-display);
+  font-size: 16px;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  color: var(--text-heading);
+  margin-bottom: 20px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.info-card__title svg { color: var(--red); }
+
+.info-card__list {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+.info-card__list li {
+  display: flex;
+  align-items: flex-start;
+  gap: 14px;
+}
+.info-card__icon {
+  width: 36px;
+  height: 36px;
+  background: rgba(204,34,34,0.08);
+  color: var(--red);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: var(--radius);
+  flex-shrink: 0;
+  margin-top: 2px;
+}
+.info-card__label {
+  display: block;
+  font-family: var(--font-display);
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: var(--text-muted);
+  margin-bottom: 3px;
+}
+.info-card__value {
+  display: block;
+  font-size: 14.5px;
+  color: var(--text-heading);
+  line-height: 1.6;
+  transition: color var(--transition);
+}
+a.info-card__value:hover { color: var(--red); }
+address.info-card__value { font-style: normal; }
+
+/* ── Opening hours ── */
+.hours-list {
+  display: flex;
+  flex-direction: column;
+}
+.hours-list__item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 0;
+  border-bottom: 1px solid var(--border);
+  font-size: 14px;
+}
+.hours-list__item:last-child { border-bottom: none; }
+.hours-list__item--today {
+  color: var(--red);
+  font-weight: 600;
+}
+.hours-list__day {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: var(--text-body);
+}
+.hours-list__item--today .hours-list__day { color: var(--red); }
+.hours-list__today-badge {
+  background: var(--red);
+  color: var(--white);
+  font-family: var(--font-display);
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  padding: 2px 7px;
+  border-radius: 20px;
+}
+.hours-list__hours { color: var(--text-body); }
+.hours-list__hours--closed { color: var(--text-muted); }
+.hours-list__item--today .hours-list__hours { color: var(--red); }
+
+/* ── Right column ── */
+.contact-page__right {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+/* ── Form card ── */
+.contact-form-card {
+  background: var(--white);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 36px;
+}
+.contact-form-card__sub {
+  font-size: 14px;
+  color: var(--text-muted);
+  margin-bottom: 28px;
+  margin-top: -12px;
+}
+
+.contact-form {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+.contact-form__row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+}
+.contact-form__field {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+.contact-form__field label {
+  font-family: var(--font-display);
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  color: var(--text-body);
+}
+.contact-form__field label span { color: var(--red); }
+
+.contact-form__field input,
+.contact-form__field textarea {
+  padding: 12px 16px;
+  font-family: var(--font-body);
+  font-size: 15px;
+  color: var(--text-heading);
+  background: var(--off-white);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  outline: none;
+  transition: border-color var(--transition), box-shadow var(--transition);
+  width: 100%;
+  resize: vertical;
+}
+.contact-form__field input::placeholder,
+.contact-form__field textarea::placeholder { color: var(--light-grey); }
+.contact-form__field input:focus,
+.contact-form__field textarea:focus {
+  border-color: var(--red);
+  box-shadow: 0 0 0 3px rgba(204,34,34,0.1);
+  background: var(--white);
+}
+
+.contact-form__submit {
+  align-self: flex-start;
+  margin-top: 4px;
+}
+.contact-form__submit:disabled {
+  opacity: 0.65;
+  cursor: not-allowed;
+  transform: none;
+}
+
+/* ── Feedback states ── */
+.form-feedback {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 16px;
+  padding: 36px 24px;
+  border-radius: var(--radius);
+}
+.form-feedback--success {
+  background: rgba(34, 163, 74, 0.06);
+  border: 1px solid rgba(34, 163, 74, 0.2);
+}
+.form-feedback--success svg { color: #22a34a; }
+.form-feedback--success strong {
+  display: block;
+  font-family: var(--font-display);
+  font-size: 20px;
+  font-weight: 800;
+  text-transform: uppercase;
+  color: var(--text-heading);
+  margin-bottom: 6px;
+}
+.form-feedback--success p { font-size: 15px; color: var(--text-muted); }
+
+.form-feedback--error {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  text-align: left;
+  gap: 12px;
+  padding: 14px 16px;
+  background: rgba(204,34,34,0.05);
+  border: 1px solid rgba(204,34,34,0.2);
+  border-radius: var(--radius);
+  margin-bottom: 4px;
+}
+.form-feedback--error svg { color: var(--red); flex-shrink: 0; }
+.form-feedback--error p { font-size: 14px; color: var(--text-body); }
+
+.form-feedback__reset { margin-top: 8px; }
+
+/* ── Map ── */
+.contact-map {
+  height: 320px;
+  border-radius: var(--radius);
+  overflow: hidden;
+  border: 1px solid var(--border);
+}
+
+/* ── Responsive ── */
+@media (max-width: 900px) {
+  .contact-page__body {
+    grid-template-columns: 1fr;
+  }
+}
+@media (max-width: 560px) {
+  .contact-form__row { grid-template-columns: 1fr; }
+  .contact-form-card { padding: 24px; }
+}
